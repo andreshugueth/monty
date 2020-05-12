@@ -26,14 +26,24 @@
 int main(int argc, char *argv[])
 {
 	FILE *fptr;
+	char *line = NULL;
+	size_t linecap = 0;
+	ssize_t linelen;
+	int line_number = 0;
 
-	fptr = fopen(argv[1],"r");
 
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		return (EXIT_FAILURE);
 	}
+	fptr = fopen(argv[1],"r");
+	while ((linelen = getline(&line, &linecap, fptr)) > 0)
+	{
+		fwrite(line, linelen, 1, stdout);
+		line_number++;
+	}
+
 	if (!fptr)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);

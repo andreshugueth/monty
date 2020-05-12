@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+
+#define TOKEN_DELIMITERS " \t\r\n\a "
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -33,4 +35,9 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+/*parsing*/
+char **_tokenizer(char *buffer_line);
+int (*get_op_func(char *opcode))(stack_t, unsigned int);
+
 #endif   /* ----- #ifndef MONTY_H  ----- */
