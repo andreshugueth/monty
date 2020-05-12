@@ -43,11 +43,9 @@ int main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	}
 	while ((read = getline(&line, &len, fptr)) != -1)
-		line_number++;
-
-	if (line)
+	{
 		col_strings = _tokenizer(line);
-
-	printf("%s\n", col_strings[0]);
+		line_number++;
+	}
 	return (EXIT_SUCCESS);
 }			/* ----------  end of function main  ---------- */

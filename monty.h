@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <string.h>
 
-#define TOKEN_DELIMITERS " \t\r\n\a "
+#define TOKEN_DELIMITERS " "
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
