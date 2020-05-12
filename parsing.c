@@ -10,36 +10,29 @@
  *       Revision:  none
  *       Compiler:  gcc
  *
- *         Author:  SAMUEL GOMEZ J (samgj18), samgomjim.18@gmail.com
+ *         Author:  SAMUEL GOMEZ J & ANDRES HUGUET
  *   Organization:  Holberton
  *
  * ===================================================
  */
 #include "monty.h"
-/**
- *_tokenizer - buffer_line read
- *@buffer_line: line to be tokeanized
- *Return: the tokenized line in a 2d array
- */
-char **_tokenizer(char *buffer_line)
+char **_tokenizer(char *line)
 {
+	int buffer_size = 1024;
 	int i;
-	char *piece, **pieces;
+	char **tokens = NULL;
+	char *token = NULL;
 
-	pieces = malloc(sizeof(char *) * 100);/*100 char pointer*/
-	if (pieces ==  NULL)
-		return (pieces);
-	piece = strtok(buffer_line, TOKEN_DELIMITERS);
-	i = 0;
-	while (piece != NULL)
+	tokens = malloc(sizeof(char *) * buffer_size);
+	if (tokens == NULL)
+		exit(1);
+
+	token = strtok(line, TOKEN_DELIMITERS);
+	for (i = 0; token != NULL; i++)
 	{
-		if (_is_empty(buffer_line) == 0)
-		{
-			pieces[i] = ft_strdup(piece);/*space for the string*/
-		}
-		i++;
-		piece = strtok(NULL, TOKEN_DELIMITERS);
+		tokens[i] = token;
+		token = strtok(NULL, TOKEN_DELIMITERS);
 	}
-	pieces[i] = NULL;
-	return (pieces);/* malloc*/
+	tokens[i] = NULL;
+	return (tokens);
 }

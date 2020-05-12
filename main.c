@@ -10,7 +10,7 @@
  *       Revision:  none
  *       Compiler:  gcc
  *
- *         Author:  SAMUEL GOMEZ Y ANDRES HUGUET
+ *         Author:  SAMUEL GOMEZ & ANDRES HUGUET
  *   Organization:  Holberton
  *
  * ===================================================
@@ -25,29 +25,29 @@
  */
 int main(int argc, char *argv[])
 {
+	char **col_strings = NULL;
 	FILE *fptr;
 	char *line = NULL;
-	size_t linecap = 0;
-	ssize_t linelen;
+	size_t len = 0;
+	ssize_t read;
 	int line_number = 0;
-
-
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		return (EXIT_FAILURE);
 	}
 	fptr = fopen(argv[1],"r");
-	while ((linelen = getline(&line, &linecap, fptr)) > 0)
-	{
-		fwrite(line, linelen, 1, stdout);
-		line_number++;
-	}
-
 	if (!fptr)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		return (EXIT_FAILURE);
 	}
+	while ((read = getline(&line, &len, fptr)) != -1)
+		line_number++;
+
+	if (line)
+		col_strings = _tokenizer(line);
+
+	printf("%s\n", col_strings[0]);
 	return (EXIT_SUCCESS);
 }			/* ----------  end of function main  ---------- */

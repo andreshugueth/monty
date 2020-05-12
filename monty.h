@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 
 #define TOKEN_DELIMITERS " \t\r\n\a "
 /**
