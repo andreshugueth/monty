@@ -37,9 +37,9 @@ Please use the following data structures for this project. Don’t forget to inc
   */
 typedef struct stack_s
 {
-	        int n;
-			        struct stack_s *prev;
-					        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 ```
 
@@ -122,7 +122,7 @@ julien@ubuntu:~/monty$
 - Usage: **monty file**
 	- where **file** is the path to the file containing Monty byte code
 
-- If the user does not give any file or more than one argument to your program, print the error message USAGE: monty file, followed by a new line, and exit with the status EXIT_FAILURE
+- If the user does not give any file or more than one argument to your program, print the error message USAGE: monty file, followed by a new line, and exit with the status `r colorize("EXIT_FAILURE ", "red")`
 
 - If, for any reason, it’s not possible to open the file, print the error message Error: Can't open file <file>, followed by a new line, and exit with the status EXIT_FAILURE
 	- where <file> is the name of the file
