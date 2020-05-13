@@ -25,13 +25,13 @@
  */
 void push(stack_t **stack, unsigned int line_num)
 {
-	stack_t *new_node, *last;
+	stack_t *new_node;
+	
 	if (!stack)
 	{
 		fprintf(stderr, "L%d: Need to use line_num\n", line_num);
 		exit(EXIT_FAILURE);
 	}
-	last = *stack;
 	new_node = malloc(sizeof(stack_t));
 	if (!new_node)
 	{
@@ -39,33 +39,27 @@ void push(stack_t **stack, unsigned int line_num)
 		exit(EXIT_FAILURE);
 	}
 	new_node->n = glob_vars.glob_int;
-	new_node->next = NULL;
-	if (!*stack)
-	{
-		new_node->prev = NULL;
-		*stack = new_node;
-		return;
-	}
-	while (last->next)
-		last = last->next;
-	last->next = new_node;
-	new_node->prev = last;
+	new_node->next = (*stack);
+	new_node->prev = NULL;
+	if (*stack)
+		(*stack)->prev = new_node;
+	*stack = new_node;
 }
 void pall(stack_t **stack, unsigned int line_num)
 {
-	int i;
+	stack_t *tmp;
 
-	i = 0;
-	while (*stack)
+	if (!stack)
 	{
-		stack = &(*stack)->next;
-		i++;
+		fprintf(stderr, "L%d: Need to use line_num\n", line_num);
+		exit(EXIT_FAILURE);
 	}
-	while (i != 0)
+
+	tmp = *stack;
+	while (tmp)
 	{
-		printf("%d\n", stack->n);
-		stack = stack->prev;
-		i--;
+		printf("%d\n", tmp->n);
+		tmp = tmp->next;
 	}
 }
 void pint(stack_t **stack, unsigned int line_num)
@@ -78,7 +72,7 @@ void pint(stack_t **stack, unsigned int line_num)
 	else
 		printf("%d\n", (*stack)->n);
 }
-void pop(stack_t **stack, unsigned int line_num)
+void pop(__attribute__((unused)) stack_t **stack, __attribute__((unused)) unsigned int line_num)
 {
 	printf("Función pop\n");
 }
