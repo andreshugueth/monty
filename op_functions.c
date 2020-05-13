@@ -3,7 +3,7 @@
  *
  *       Filename:  op_functions.c
  *
- *    Description:
+ *    Description:  Collection of functions that are called
  *
  *        Version:  1.0
  *        Created:  05/12/2020 07:13:02 PM
@@ -66,11 +66,17 @@ void pall(stack_t **stack, unsigned int line_num)
 		tmp = tmp->next;
 	}
 }
-void pint(__attribute__((unused))stack_t **stack, __attribute__((unused)) unsigned int line_num)
+void pint(stack_t **stack, unsigned int line_num)
 {
-	printf("Función pint\n");
+	if (!stack || !*stack)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_num);
+		exit(EXIT_FAILURE);
+	}
+	else
+		printf("%d\n", (*stack)->n);
 }
-void pop(__attribute__((unused))stack_t **stack, __attribute__((unused)) unsigned int line_num)
+void pop(stack_t **stack, unsigned int line_num)
 {
 	printf("Función pop\n");
 }

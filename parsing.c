@@ -24,7 +24,7 @@ char **_tokenizer(char *line)
 	char *token = NULL;
 
 	tokens = malloc(sizeof(char *) * buffer_size);
-	if (tokens == NULL)
+	if (!tokens)
 		exit(1);
 
 	token = strtok(line, TOKEN_DELIMITERS);
