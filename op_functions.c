@@ -25,39 +25,46 @@
  */
 void push(stack_t **stack, unsigned int line_num)
 {
-	stack_t *new, *prev;
-
-	new = malloc(sizeof(stack_t));
-	if (new == NULL)
-		printf("Error malloc new/push");
-
-	prev = NULL;
-	while (*stack)
+	stack_t *new_node, *last;
+	if (!stack)
 	{
-		prev = *stack;
-		stack = &(*stack)->next;
+		fprintf(stderr, "L%d: Need to use line_num\n", line_num);
+		exit(EXIT_FAILURE);
 	}
-	new->n = glob_vars.glob_int;
-	new->prev = prev;
-	new->next = NULL;
+	last = *stack;
+	new_node = malloc(sizeof(stack_t));
+	if (!new_node)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
+	new_node->n = glob_vars.glob_int;
+	new_node->next = NULL;
+	if (!*stack)
+	{
+		new_node->prev = NULL;
+		*stack = new_node;
+		return;
+	}
+	while (last->next)
+		last = last->next;
+	last->next = new_node;
+	new_node->prev = last;
 }
-void pall(stack_t **stack,unsigned int line_num)
+void pall(stack_t **stack, unsigned int line_num)
 {
-	int i;
-
-	i = 0;
-	while (*stack)
+	const dlistint_t *tmp;
+	tmp = stack;
+	if (!stack)
 	{
-		stack = &(*stack)->next;
-		i++;
+		fprintf(stderr, "L%d: Need to use line_num\n", line_num);
+		exit(EXIT_FAILURE);
 	}
-	while (i != 0)
+	while (tmp != NULL)
 	{
-		printf("%d\n", stack->n);
-		stack = stack->prev;
-		i--;
+		printf("%i\n", tmp->n);
+		tmp = tmp->next;
 	}
-
 }
 void pint(__attribute__((unused))stack_t **stack, __attribute__((unused)) unsigned int line_num)
 {
