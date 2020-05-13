@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 	size_t len = 0;
 	ssize_t read;
 	int line_number = 1;
-	stack_t **stack = NULL;
+	stack_t *stack = NULL;
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
@@ -46,8 +46,12 @@ int main(int argc, char *argv[])
 	while ((read = getline(&line, &len, fptr)) != -1)
 	{
 		col_strings = _tokenizer(line);
+		if (col_strings)
+		{
+			get_op_func_wrapper(line_number, col_strings, &stack);
+		}
 		line_number++;
-		get_op_func_wrapper(line_number, col_strings, stack);
 	}
+	fclose(fptr);
 	return (EXIT_SUCCESS);
 }			/* ----------  end of function main  ---------- */

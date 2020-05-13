@@ -40,7 +40,6 @@ void (*get_op_func(char *opcode))(stack_t **stack, unsigned int)
 	{
 		if (strcmp(ops[x].opcode, opcode) == 0)
 			return (ops[x].f);
-
 		x++;
 	}
 	return (0);

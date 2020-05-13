@@ -26,12 +26,13 @@
 void push(stack_t **stack, unsigned int line_num)
 {
 	stack_t *new_node;
-	
+
 	if (!stack)
 	{
 		fprintf(stderr, "L%d: Need to use line_num\n", line_num);
 		exit(EXIT_FAILURE);
 	}
+
 	new_node = malloc(sizeof(stack_t));
 	if (!new_node)
 	{
