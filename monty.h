@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <string.h>
 
-#define TOKEN_DELIMITERS " \n$"
+#define TOKEN_DELIMITERS " \n\t\r\a"
 
 typedef struct glob_vars
 {

@@ -73,9 +73,22 @@ void pint(stack_t **stack, unsigned int line_num)
 	else
 		printf("%d\n", (*stack)->n);
 }
-void pop(__attribute__((unused)) stack_t **stack, __attribute__((unused)) unsigned int line_num)
+void pop(stack_t **stack, unsigned int line_num)
 {
-	printf("Función pop\n");
+	stack_t *tmp;
+
+	if (!stack || !*stack)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_num);
+		exit(EXIT_FAILURE);
+	}
+	tmp = (*stack);
+	if ((*stack)->next)
+		(*stack) = (*stack)->next;
+	else
+		(*stack)->next = NULL;
+	(*stack)->prev = NULL;
+	free(tmp);
 }
 void swap(__attribute__((unused))stack_t **stack, __attribute__((unused)) unsigned int line_num)
 {
