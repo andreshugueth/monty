@@ -84,15 +84,35 @@ void pop(stack_t **stack, unsigned int line_num)
 	}
 	tmp = (*stack);
 	if ((*stack)->next)
+	{
 		(*stack) = (*stack)->next;
+		(*stack)->prev = NULL;
+		free(tmp);
+	}
 	else
-		(*stack)->next = NULL;
-	(*stack)->prev = NULL;
-	free(tmp);
+		free(*stack);
 }
-void swap(__attribute__((unused))stack_t **stack, __attribute__((unused)) unsigned int line_num)
+void swap(stack_t **stack, unsigned int line_num)
 {
-	printf("Función swap\n");
+	int sw1, sw2, counter;
+	stack_t *tmp, *cnt;
+	
+	cnt = (*stack);
+	while (cnt)
+	{
+		cnt = cnt->next;
+		counter++;
+	}
+	if (counter < 2)
+	{
+		fprintf(stderr,"L%d: can't swap, stack too short", line_num);
+		exit(EXIT_FAILURE);
+	}
+	tmp = (*stack);
+	sw1 = tmp->n;
+	sw2 = tmp->next->n;
+	(*stack)->n = sw2;
+	(*stack)->next->n = sw1;
 }
 void add(__attribute__((unused))stack_t **stack, __attribute__((unused)) unsigned int line_num)
 {
