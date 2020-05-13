@@ -114,9 +114,29 @@ void swap(stack_t **stack, unsigned int line_num)
 	(*stack)->n = sw2;
 	(*stack)->next->n = sw1;
 }
-void add(__attribute__((unused))stack_t **stack, __attribute__((unused)) unsigned int line_num)
+void add(stack_t **stack, unsigned int line_num)
 {
-	printf("Función add\n");
+	int result, counter, n1, n2;
+	stack_t *tmp, *cnt;
+
+	cnt = (*stack);
+	while (cnt)
+	{
+		cnt = cnt->next;
+		counter++;
+	}
+	if (counter < 2)
+	{
+		fprintf(stderr,"L%d: can't add, stack too short", line_num);
+		exit(EXIT_FAILURE);
+	}
+	tmp = (*stack);
+	n1 = tmp->n;
+	n2 = tmp->next->n;
+	result = n1 + n2;
+	(*stack)->next->n = result;
+	*stack = (*stack)->next;
+	free(tmp);
 }
 void nop(__attribute__((unused))stack_t **stack, __attribute__((unused)) unsigned int line_num)
 {
