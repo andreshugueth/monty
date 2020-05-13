@@ -53,17 +53,19 @@ void push(stack_t **stack, unsigned int line_num)
 }
 void pall(stack_t **stack, unsigned int line_num)
 {
-	const dlistint_t *tmp;
-	tmp = stack;
-	if (!stack)
+	int i;
+
+	i = 0;
+	while (*stack)
 	{
-		fprintf(stderr, "L%d: Need to use line_num\n", line_num);
-		exit(EXIT_FAILURE);
+		stack = &(*stack)->next;
+		i++;
 	}
-	while (tmp != NULL)
+	while (i != 0)
 	{
-		printf("%i\n", tmp->n);
-		tmp = tmp->next;
+		printf("%d\n", stack->n);
+		stack = stack->prev;
+		i--;
 	}
 }
 void pint(stack_t **stack, unsigned int line_num)
