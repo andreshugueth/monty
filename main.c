@@ -51,7 +51,9 @@ int main(int argc, char *argv[])
 			get_op_func_wrapper(line_number, col_strings, &stack);
 		}
 		line_number++;
+		free(col_strings);
 	}
 	fclose(fptr);
+	free_list(stack);
 	return (EXIT_SUCCESS);
 }			/* ----------  end of function main  ---------- */
