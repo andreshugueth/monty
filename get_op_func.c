@@ -39,11 +39,8 @@ void (*get_op_func(char *opcode))(stack_t **stack, unsigned int)
 	while (x < (sizeof(ops) / sizeof(ops[0])))
 	{
 		if (strcmp(ops[x].opcode, opcode) == 0)
-		{
-			printf("%s\n", opcode);
-			printf("%s\n", ops[x].opcode);
 			return (ops[x].f);
-		}
+
 		x++;
 	}
 	return (0);
