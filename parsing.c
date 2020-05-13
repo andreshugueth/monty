@@ -28,6 +28,9 @@ char **_tokenizer(char *line)
 		exit(1);
 
 	token = strtok(line, TOKEN_DELIMITERS);
+
+	if (token == NULL || *token == ' ' || *token == '\n' || *token == '#')
+		return (NULL);
 	for (i = 0; token != NULL; i++)
 	{
 		tokens[i] = token;
