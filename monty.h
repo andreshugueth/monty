@@ -7,6 +7,15 @@
 #include <string.h>
 
 #define TOKEN_DELIMITERS " "
+
+typedef struct glob_vars
+{
+	int glob_int;
+} glob_t;
+
+extern glob_t glob_vars;
+glob_t glob_vars;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -39,6 +48,17 @@ typedef struct instruction_s
 
 /*parsing*/
 char **_tokenizer(char *buffer_line);
-int (*get_op_func(char *opcode))(stack_t, unsigned int);
+void (*get_op_func(char *opcode))(stack_t **stack, unsigned int);
 
+/*checking*/
+int get_op_func_wrapper(unsigned int, char **col_strings, stack_t **stack);
+
+/*operations*/
+void push(stack_t **stack, unsigned int);
+void pall(stack_t **stack, unsigned int);
+void pint(stack_t **stack, unsigned int);
+void pop(stack_t **stack, unsigned int);
+void swap(stack_t **stack, unsigned int);
+void add(stack_t **stack, unsigned int);
+void nop(stack_t **stack, unsigned int);
 #endif   /* ----- #ifndef MONTY_H  ----- */

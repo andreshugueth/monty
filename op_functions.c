@@ -23,4 +23,31 @@
  *
  *
  */
-void push ()
+void push(__attribute__((unused))stack_t **stack,__attribute__((unused)) unsigned int line_num)
+{
+	printf("Función push\n");
+}
+void pall(__attribute__((unused))stack_t **stack,__attribute__((unused)) unsigned int line_num)
+{
+	printf("Función pall\n");
+}
+void pint(__attribute__((unused))stack_t **stack, __attribute__((unused)) unsigned int line_num)
+{
+	printf("Función pint\n");
+}
+void pop(__attribute__((unused))stack_t **stack, __attribute__((unused)) unsigned int line_num)
+{
+	printf("Función pop\n");
+}
+void swap(__attribute__((unused))stack_t **stack, __attribute__((unused)) unsigned int line_num)
+{
+	printf("Función swap\n");
+}
+void add(__attribute__((unused))stack_t **stack, __attribute__((unused)) unsigned int line_num)
+{
+	printf("Función add\n");
+}
+void nop(__attribute__((unused))stack_t **stack, __attribute__((unused)) unsigned int line_num)
+{
+	printf("Función nop\n");
+}

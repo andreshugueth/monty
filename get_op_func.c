@@ -3,7 +3,7 @@
  *
  *       Filename:  get_op_func.c
  *
- *    Description:
+ *    Description:  Select the correct operation function asked by the user
  *
  *        Version:  1.0
  *        Created:  05/12/2020 07:13:37 PM
@@ -23,23 +23,25 @@
  * Return: Function pointer to operator given
  *
  */
-int (*get_op_func(char *opcode))(stack_t, unsigned int)
+void (*get_op_func(char *opcode))(stack_t **stack, unsigned int)
 {
 	instruction_t ops[] = {
-		{"push", op_push},
-		{"pall", op_pall},
-		{"pint", op_pint},
-		{"pop", op_pop},
-		{"swap", op_swap},
-		{"add", op_add},
-		{"nop", op_nop},
+		{"push", push},
+		{"pall", pall},
+		{"pint", pint},
+		{"pop", pop},
+		{"swap", swap},
+		{"add", add},
+		{"nop", nop},
 		{NULL, NULL}
 	};
-	int x = 0;
+	unsigned int x = 0;
 	while (x < (sizeof(ops) / sizeof(ops[0])))
 	{
-		if (*(ops[x].opcode) == *opcode)
+		if (strcmp(ops[x].opcode, opcode) == 0)
 		{
+			printf("%s\n", opcode);
+			printf("%s\n", ops[x].opcode);
 			return (ops[x].f);
 		}
 		x++;

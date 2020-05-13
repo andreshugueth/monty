@@ -25,12 +25,13 @@
  */
 int main(int argc, char *argv[])
 {
-	char **col_strings = NULL;
 	FILE *fptr;
+	char **col_strings = NULL;
 	char *line = NULL;
 	size_t len = 0;
 	ssize_t read;
 	int line_number = 0;
+	stack_t **stack = NULL;
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
@@ -46,6 +47,7 @@ int main(int argc, char *argv[])
 	{
 		col_strings = _tokenizer(line);
 		line_number++;
+		get_op_func_wrapper(line_number, col_strings, stack);
 	}
 	return (EXIT_SUCCESS);
 }			/* ----------  end of function main  ---------- */
