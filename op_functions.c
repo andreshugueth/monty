@@ -33,7 +33,6 @@ void push(stack_t **stack, unsigned int line_num)
 		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
-
 	new_node = malloc(sizeof(stack_t));
 	if (!new_node)
 	{
@@ -63,7 +62,6 @@ void pall(stack_t **stack, unsigned int line_num)
 		fprintf(stderr, "L%d: Need to use line_num\n", line_num);
 		exit(EXIT_FAILURE);
 	}
-
 	tmp = *stack;
 	while (tmp)
 	{
@@ -128,26 +126,15 @@ void pop(stack_t **stack, unsigned int line_num)
  */
 void swap(stack_t **stack, unsigned int line_num)
 {
-	int sw1, sw2, counter;
-	stack_t *tmp, *cnt;
+	int aux;
 
-	sw1 = sw2 = counter = 0;
-	cnt = (*stack);
-	while (cnt)
-	{
-		cnt = cnt->next;
-		counter++;
-	}
-	if (counter < 2)
+	if (!stack || !*stack || (*stack)->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short", line_num);
 		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
-	tmp = (*stack);
-	sw1 = tmp->n;
-	sw2 = tmp->next->n;
-	(*stack)->n = sw2;
-	(*stack)->next->n = sw1;
+	aux = (*stack)->n;
+	(*stack)->n = (*stack)->next->n;
+	(*stack)->next->n = aux;
 }
-
