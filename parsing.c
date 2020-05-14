@@ -55,6 +55,8 @@ char **_tokenizer(char *line)
  */
 int is_number(char *col_strings)
 {
+	if (*col_strings == 45)
+		col_strings++;
 	if (!col_strings)
 		return (0);
 	while (*col_strings != '\0')
