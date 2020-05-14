@@ -49,3 +49,29 @@ void free_all(stack_t **stack, unsigned int line_num)
 	exit(EXIT_FAILURE);
 }
 
+/**
+ * add - adds the top two elements of the stack
+ * @stack: Top of the Linked list
+ * @line_num: Number of read line
+ *
+ * Return: Nothing
+ */
+void sub(stack_t **stack, unsigned int line_num)
+{
+	int aux;
+	stack_t *tmp;
+
+	tmp = (*stack);
+
+	if (!stack || !*stack || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_num);
+		free_list(*stack);
+		exit(EXIT_FAILURE);
+	}
+	aux = (*stack)->n;
+	aux -= (*stack)->next->n;
+	(*stack)->next->n = aux;
+	*stack = (*stack)->next;
+	free(tmp);
+}

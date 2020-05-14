@@ -70,6 +70,7 @@ void swap(stack_t **stack, unsigned int);
 void add(stack_t **stack, unsigned int);
 void nop(stack_t **stack, unsigned int);
 void free_all(stack_t **stack, unsigned int);
+void sub(stack_t **stack, unsigned int);
 
 /*free list*/
 void free_list(stack_t *stack);
