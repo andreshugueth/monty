@@ -7,7 +7,7 @@
 #include <string.h>
 #include <ctype.h>
 
-#define TOKEN_DELIMITERS " \n\t\r\a"
+#define TOKEN_DELIMITERS " \n"
 /**
  * struct glob_vars - struct for global variables
  * @glob_int: integer
