@@ -50,7 +50,7 @@ void free_all(stack_t **stack, unsigned int line_num)
 }
 
 /**
- * add - adds the top two elements of the stack
+ * sub - subs the top two elements of the stack
  * @stack: Top of the Linked list
  * @line_num: Number of read line
  *
@@ -71,6 +71,40 @@ void sub(stack_t **stack, unsigned int line_num)
 	}
 	aux = (*stack)->next->n;
 	aux -= (*stack)->n;
+	(*stack)->next->n = aux;
+	*stack = (*stack)->next;
+	free(tmp);
+}
+
+/**
+ * div - subs the top two elements of the stack
+ * @stack: Top of the Linked list
+ * @line_num: Number of read line
+ *
+ * Return: Nothing
+ */
+void own_div(stack_t **stack, unsigned int line_num)
+{
+	int aux;
+	stack_t *tmp;
+
+	tmp = (*stack);
+
+	if (!stack || !*stack || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_num);
+		free_list(*stack);
+		exit(EXIT_FAILURE);
+	}
+	aux = (*stack)->next->n;
+	if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_num);
+		free_list(*stack);
+		exit(EXIT_FAILURE);
+	}
+
+	aux /= (*stack)->n;
 	(*stack)->next->n = aux;
 	*stack = (*stack)->next;
 	free(tmp);
