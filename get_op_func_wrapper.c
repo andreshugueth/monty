@@ -33,18 +33,14 @@ int get_op_func_wrapper(unsigned int line_number, char **col_strings, stack_t **
 	{
 		if (col_strings[1] != NULL)
 			glob_vars.glob_int = atoi(col_strings[1]);
-
 		else
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_number);
 			return (EXIT_FAILURE);
 		}
-
-		get_op_func(col_strings[0])(stack, line_number);
+		get_op_func(col_strings[0], line_number)(stack, line_number);
 	}
 	else
-		get_op_func(col_strings[0])(stack, line_number);
-
+		get_op_func(col_strings[0], line_number)(stack, line_number);
 	return (0);
 }
-
