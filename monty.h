@@ -74,6 +74,7 @@ void own_div(stack_t **stack, unsigned int);
 void mul(stack_t **stack, unsigned int);
 void mod(stack_t **stack, unsigned int);
 void pchar(stack_t **stack, unsigned int);
+void pstr(stack_t **stack, unsigned int);
 
 /*free*/
 void free_list(stack_t *stack);

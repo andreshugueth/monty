@@ -106,3 +106,32 @@ void pchar(stack_t **stack, unsigned int line_num)
 	putchar(number);
 	putchar('\n');
 }
+/**
+ * pstr - 
+ * @stack: Top of the linked list
+ * @line_num: Number of read line
+ *
+ * Return: Nothing
+ */
+void pstr(stack_t **stack, unsigned int line_num)
+{
+	(void) line_num;
+	int number;
+	stack_t *tmp;
+
+	if (!*stack || !stack)
+	{
+		putchar('\n');
+		return;
+	}
+	tmp = (*stack);
+	while (tmp)
+	{
+		number = tmp->n;
+		if (number == 0 || number < 0 || number > 127)
+			break;
+		putchar(number);
+		tmp = tmp->next;
+	}
+	putchar('\n');
+}
