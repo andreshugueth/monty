@@ -116,7 +116,6 @@ void pchar(stack_t **stack, unsigned int line_num)
 void pstr(stack_t **stack, unsigned int line_num)
 {
 	(void) line_num;
-	int number;
 	stack_t *tmp;
 
 	if (!*stack || !stack)
@@ -125,12 +124,9 @@ void pstr(stack_t **stack, unsigned int line_num)
 		return;
 	}
 	tmp = (*stack);
-	while (tmp)
+	while (tmp && isascii(tmp->n) && tmp->n != 0)
 	{
-		number = tmp->n;
-		if (number == 0 || number < 0 || number > 127)
-			break;
-		putchar(number);
+		putchar(tmp->n);
 		tmp = tmp->next;
 	}
 	putchar('\n');
