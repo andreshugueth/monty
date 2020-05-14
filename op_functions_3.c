@@ -60,12 +60,17 @@ void mod(stack_t **stack, unsigned int line_num)
 
 	if (!stack || !*stack || (*stack)->next == NULL)
 	{
-		fprintf(stderr, "L%d: can't mul, stack too short\n", line_num);
+		fprintf(stderr, "L%d: can't mod, stack too short\n", line_num);
 		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
 
-
+	if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_num);
+		free_list(*stack);
+		exit(EXIT_FAILURE);
+	}
 	aux = (*stack)->n;
 	rest = (*stack)->next->n;
 	aux = aux % rest;
