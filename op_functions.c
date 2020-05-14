@@ -146,7 +146,8 @@ void add(stack_t **stack, unsigned int line_num)
 	*stack = (*stack)->next;
 	free(tmp);
 }
-void nop(__attribute__((unused))stack_t **stack, __attribute__((unused)) unsigned int line_num)
+void nop(stack_t **stack, unsigned int line_num)
 {
-	return;;
+	(void) stack;
+	(void) line_num;
 }
