@@ -10,14 +10,12 @@
  *       Revision:  none
  *       Compiler:  gcc
  *
- *         Author:  SAMUEL GOMEZ Y ANDRES HUGUET
+ *         Author:  SAMUEL GOMEZ & ANDRES HUGUET
  *   Organization:  Holberton
  *
  * ===================================================
  */
-
 #include "monty.h"
-
 /**
  * main - Entry Point
  * @argc: Arguments count
@@ -27,6 +25,38 @@
  */
 int main(int argc, char *argv[])
 {
-
+	FILE *fptr;
+	char **col_strings = NULL;
+	char *line = NULL;
+	size_t len = 0;
+	ssize_t read;
+	int line_number = 1;
+	stack_t *stack = NULL;
+	if (argc != 2)
+	{
+		fprintf(stderr, "USAGE: monty file\n");
+		return (EXIT_FAILURE);
+	}
+	fptr = fopen(argv[1],"r");
+	if (!fptr)
+	{
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		return (EXIT_FAILURE);
+	}
+	while ((read = getline(&line, &len, fptr)) != -1)
+	{
+		col_strings = _tokenizer(line);
+		if (!col_strings)
+		{
+			line_number++;
+			continue;
+		}
+		get_op_func_wrapper(line_number, col_strings, &stack);
+		line_number++;
+		free(col_strings);
+	}
+	fclose(fptr);
+	free(line);
+	free_list(stack);
 	return (EXIT_SUCCESS);
 }			/* ----------  end of function main  ---------- */
