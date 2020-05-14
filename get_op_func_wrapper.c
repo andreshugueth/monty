@@ -3,7 +3,8 @@
  *
  *       Filename:  get_op_func_wraper.c
  *
- *    Description:  Function that verifies if the command and the arguments are valid,
+ *    Description:  Function that verifies if the command
+ *    and the arguments are valid,
  *    if so it returns the function that is called.
  *
  *        Version:  1.0
@@ -20,9 +21,9 @@
 /**
  * get_op_func_wrapper - Function that verifies if the command and the
  * arguments are valid, if so it returns the integer of push converted.
- * @stack:
- * @line_number:
- * @col_strings:
+ * @stack: Top of the list
+ * @line_number: number of read line
+ * @col_strings: parsed strings
  *
  * Return: Integer of col_strings converted if success and EXIT_FAILURE
  * if the number doesn't exist and returns 1 if is another function

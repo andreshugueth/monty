@@ -16,12 +16,20 @@
  * ===================================================
  */
 #include "monty.h"
+/**
+ * _tokenizer - Parses the line into tokens
+ * @line: string read by getline function
+ *
+ * Return: Array of tokens on success, NULL on failure
+ *
+ */
 char **_tokenizer(char *line)
 {
 	int buffer_size = 1024;
 	int i;
 	char **tokens = NULL;
 	char *token = NULL;
+
 	tokens = malloc(sizeof(char *) * buffer_size);
 	if (!tokens)
 		exit(1);
@@ -39,6 +47,12 @@ char **_tokenizer(char *line)
 	tokens[i] = NULL;
 	return (tokens);
 }
+/**
+ * is_number - checks if the push command has a number
+ * @col_strings: character to be checked
+ *
+ * Return: 0 on failure, 1 on success
+ */
 int is_number(char *col_strings)
 {
 	if (!col_strings)

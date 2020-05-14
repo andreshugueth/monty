@@ -32,12 +32,13 @@ int main(int argc, char *argv[])
 	ssize_t read;
 	int line_number = 1;
 	stack_t *stack = NULL;
+
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	fptr = fopen(argv[1],"r");
+	fptr = fopen(argv[1], "r");
 	if (!fptr)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
