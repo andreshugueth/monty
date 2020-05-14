@@ -19,7 +19,7 @@
 /**
  * get_op_func - Select the correct operation function asked by the user
  * @opcode: Operation code
- *
+ * @line_number: Number of read line
  * Return: Function pointer to operator given
  *
  */
@@ -36,6 +36,7 @@ void (*get_op_func(char *opcode, unsigned int line_number))(stack_t **stack, uns
 		{NULL, NULL}
 	};
 	unsigned int x = 0;
+
 	while (ops[x].opcode != NULL)
 	{
 		if (strcmp(ops[x].opcode, opcode) == 0)

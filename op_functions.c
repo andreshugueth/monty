@@ -17,11 +17,11 @@
  */
 #include "monty.h"
 /**
+ * push - pushes an argument to the beginning of a lk list
+ * @stack: top of the lk linst
+ * @line_num: number of read line
  *
- *
- *
- *
- *
+ * Return: Nothing
  */
 void push(stack_t **stack, unsigned int line_num)
 {
@@ -46,6 +46,13 @@ void push(stack_t **stack, unsigned int line_num)
 		(*stack)->prev = new_node;
 	*stack = new_node;
 }
+/**
+ * pall - prints all the values on the stack, starting on the top
+ * @stack: Top of the linked list
+ * @line_num: Number of read line
+ *
+ * Return: Nothing
+ */
 void pall(stack_t **stack, unsigned int line_num)
 {
 	stack_t *tmp;
@@ -63,6 +70,13 @@ void pall(stack_t **stack, unsigned int line_num)
 		tmp = tmp->next;
 	}
 }
+/**
+ * pint - prints the value at the top of the stack
+ * @stack: Top of the linked list
+ * @line_num: number of read line
+ *
+ * Return: Nothing
+ */
 void pint(stack_t **stack, unsigned int line_num)
 {
 	if (!stack || !*stack)
@@ -73,6 +87,13 @@ void pint(stack_t **stack, unsigned int line_num)
 	else
 		printf("%d\n", (*stack)->n);
 }
+/**
+ * pop - removes the top element of the stack
+ * @stack: Top of the linked list
+ * @line_num: Number of read line
+ *
+ * Return: Nothing
+ */
 void pop(stack_t **stack, unsigned int line_num)
 {
 	stack_t *tmp;
@@ -96,13 +117,19 @@ void pop(stack_t **stack, unsigned int line_num)
 		*stack = NULL;
 	}
 }
+/**
+ * swap - swaps the top two elements of the stack
+ * @stack: Top of the linked list
+ * @line_num: Number of read line
+ *
+ * Return: Nothing
+ */
 void swap(stack_t **stack, unsigned int line_num)
 {
 	int sw1, sw2, counter;
 	stack_t *tmp, *cnt;
 
 	sw1 = sw2 = counter = 0;
-	
 	cnt = (*stack);
 	while (cnt)
 	{
@@ -111,7 +138,7 @@ void swap(stack_t **stack, unsigned int line_num)
 	}
 	if (counter < 2)
 	{
-		fprintf(stderr,"L%d: can't swap, stack too short", line_num);
+		fprintf(stderr, "L%d: can't swap, stack too short", line_num);
 		exit(EXIT_FAILURE);
 	}
 	tmp = (*stack);
@@ -120,34 +147,4 @@ void swap(stack_t **stack, unsigned int line_num)
 	(*stack)->n = sw2;
 	(*stack)->next->n = sw1;
 }
-void add(stack_t **stack, unsigned int line_num)
-{
-	int result, counter, n1, n2;
-	stack_t *tmp, *cnt;
 
-	n1 = n2 = result = counter = 0;
-
-	cnt = (*stack);
-	while (cnt)
-	{
-		cnt = cnt->next;
-		counter++;
-	}
-	if (counter < 2)
-	{
-		fprintf(stderr,"L%d: can't add, stack too short", line_num);
-		exit(EXIT_FAILURE);
-	}
-	tmp = (*stack);
-	n1 = tmp->n;
-	n2 = tmp->next->n;
-	result = n1 + n2;
-	(*stack)->next->n = result;
-	*stack = (*stack)->next;
-	free(tmp);
-}
-void nop(stack_t **stack, unsigned int line_num)
-{
-	(void) stack;
-	(void) line_num;
-}
