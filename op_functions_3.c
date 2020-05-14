@@ -74,7 +74,7 @@ void mod(stack_t **stack, unsigned int line_num)
 		exit(EXIT_FAILURE);
 	}
 	rest = (*stack)->next->n;
-	aux = aux % rest;
+	aux = rest % aux;
 	(*stack)->next->n = aux;
 	*stack = (*stack)->next;
 	free(tmp);
