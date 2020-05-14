@@ -53,7 +53,7 @@ void mul(stack_t **stack, unsigned int line_num)
  */
 void mod(stack_t **stack, unsigned int line_num)
 {
-	int aux;
+	int aux, rest;
 	stack_t *tmp;
 
 	tmp = (*stack);
@@ -64,8 +64,11 @@ void mod(stack_t **stack, unsigned int line_num)
 		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
+
+
 	aux = (*stack)->n;
-	aux %= (*stack)->next->n;
+	rest = (*stack)->next->n;
+	aux = aux % rest;
 	(*stack)->next->n = aux;
 	*stack = (*stack)->next;
 	free(tmp);
