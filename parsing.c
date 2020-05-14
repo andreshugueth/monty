@@ -55,16 +55,16 @@ char **_tokenizer(char *line)
  */
 int is_number(char *col_strings)
 {
-	if (*col_strings == 45)
-		col_strings++;
 	if (!col_strings)
 		return (0);
+
+	if (*col_strings == 45)
+		col_strings++;
 	while (*col_strings != '\0')
 	{
 		if (!isdigit(*col_strings))
 			return (0);
 		col_strings++;
 	}
-	col_strings++;
 	return (1);
 }
