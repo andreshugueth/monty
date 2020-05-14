@@ -8,28 +8,20 @@
  */
 void add(stack_t **stack, unsigned int line_num)
 {
-	int result, counter, n1, n2;
-	stack_t *tmp, *cnt;
+	int aux;
+	stack_t *tmp;
 
-	n1 = n2 = result = counter = 0;
+	tmp = (*stack);
 
-	cnt = (*stack);
-	while (cnt)
+	if (!stack || !*stack || (*stack)->next == NULL)
 	{
-		cnt = cnt->next;
-		counter++;
-	}
-	if (counter < 2)
-	{
-		fprintf(stderr, "L%d: can't add, stack too short", line_num);
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_num);
 		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
-	tmp = (*stack);
-	n1 = tmp->n;
-	n2 = tmp->next->n;
-	result = n1 + n2;
-	(*stack)->next->n = result;
+	aux = (*stack)->n;
+	aux += (*stack)->next->n;
+	(*stack)->next->n = aux;
 	*stack = (*stack)->next;
 	free(tmp);
 }
