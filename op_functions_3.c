@@ -107,15 +107,14 @@ void pchar(stack_t **stack, unsigned int line_num)
 	putchar('\n');
 }
 /**
- * pstr - 
+ * pstr - prints the string starting at the top of the stack
  * @stack: Top of the linked list
  * @line_num: Number of read line
  *
  * Return: Nothing
  */
-void pstr(stack_t **stack, unsigned int line_num)
+void pstr(stack_t **stack, __attribute__((unused))unsigned int line_num)
 {
-	(void) line_num;
 	stack_t *tmp;
 
 	if (!*stack || !stack)
