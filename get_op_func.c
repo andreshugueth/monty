@@ -36,6 +36,7 @@ void (*get_op_func(char *code, unsigned int ln))(stack_t **stack, unsigned int)
 		{"sub", sub},
 		{"div", own_div},
 		{"mul", mul},
+		{"mod", mod},
 		{NULL, free_all}
 	};
 

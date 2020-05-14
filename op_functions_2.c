@@ -77,7 +77,7 @@ void sub(stack_t **stack, unsigned int line_num)
 }
 
 /**
- * div - divs the top two elements of the stack
+ * own_div - divs the top two elements of the stack
  * @stack: Top of the Linked list
  * @line_num: Number of read line
  *
