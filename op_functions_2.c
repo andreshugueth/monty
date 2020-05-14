@@ -45,7 +45,11 @@ void nop(stack_t **stack, unsigned int line_num)
 	(void) stack;
 	(void) line_num;
 }
-
+/**
+ * free_all - Frees stack in case of invalid command
+ * @stack: Top of the linked list
+ * @line_num: Number of read line
+ */
 void free_all(stack_t **stack, unsigned int line_num)
 {
 	free_list(*stack);

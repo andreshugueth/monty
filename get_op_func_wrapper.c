@@ -22,13 +22,13 @@
  * get_op_func_wrapper - Function that verifies if the command and the
  * arguments are valid, if so it returns the integer of push converted.
  * @stack: Top of the list
- * @line_number: number of read line
+ * @line: number of read line
  * @col_strings: parsed strings
  *
  * Return: Integer of col_strings converted if success and EXIT_FAILURE
  * if the number doesn't exist and returns 1 if is another function
  */
-int get_op_func_wrapper(unsigned int line_number, char **col_strings, stack_t **stack)
+int get_op_func_wrapper(unsigned int line, char **col_strings, stack_t **stack)
 {
 	if (strcmp(col_strings[0], "push") == 0)
 	{
@@ -36,15 +36,15 @@ int get_op_func_wrapper(unsigned int line_number, char **col_strings, stack_t **
 			glob_vars.glob_int = atoi(col_strings[1]);
 		else
 		{
-			fprintf(stderr, "L%d: usage: push integer\n", line_number);
+			fprintf(stderr, "L%d: usage: push integer\n", line);
 			free_list(*stack);
 			free(col_strings);
 			exit(EXIT_FAILURE);
 		}
-		get_op_func(col_strings[0], line_number)(stack, line_number);
+		get_op_func(col_strings[0], line)(stack, line);
 	}
 	else
-		get_op_func(col_strings[0], line_number)(stack, line_number);
+		get_op_func(col_strings[0], line)(stack, line);
 
 	return (0);
 }

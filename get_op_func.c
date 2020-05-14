@@ -19,11 +19,11 @@
 /**
  * get_op_func - Select the correct operation function asked by the user
  * @code: Operation code
- * @line: Number of read line
+ * @ln: Number of read line
  * Return: Function pointer to operator given
  *
  */
-void (*get_op_func(char *code, unsigned int line))(stack_t **stack, unsigned int)
+void (*get_op_func(char *code, unsigned int ln))(stack_t **stack, unsigned int)
 {
 	instruction_t ops[] = {
 		{"push", push},
@@ -35,13 +35,15 @@ void (*get_op_func(char *code, unsigned int line))(stack_t **stack, unsigned int
 		{"nop", nop},
 		{NULL, free_all}
 	};
+
 	unsigned int x = 0;
+
 	while (ops[x].opcode != NULL)
 	{
 		if (strcmp(ops[x].opcode, code) == 0)
 			return (ops[x].f);
 		x++;
 	}
-	fprintf(stderr, "L%d: unknown instruction %s\n", line, code);
+	fprintf(stderr, "L%d: unknown instruction %s\n", ln, code);
 	return (ops[x].f);
 }

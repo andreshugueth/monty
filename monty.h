@@ -8,7 +8,13 @@
 #include <ctype.h>
 
 #define TOKEN_DELIMITERS " \n\t\r\a"
-
+/**
+ * struct glob_vars - struct for global variables
+ * @glob_int: integer
+ *
+ * Description: structure that contains the variables
+ * shared across the whole program
+ */
 typedef struct glob_vars
 {
 	int glob_int;
