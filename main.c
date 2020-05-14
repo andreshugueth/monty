@@ -58,6 +58,7 @@ int main(int argc, char *argv[])
 	}
 	fclose(fptr);
 	free(line);
-	free_list(stack);
+	if (stack)
+		free_list(stack);
 	return (EXIT_SUCCESS);
 }			/* ----------  end of function main  ---------- */

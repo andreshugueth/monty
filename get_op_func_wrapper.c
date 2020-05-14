@@ -37,11 +37,14 @@ int get_op_func_wrapper(unsigned int line_number, char **col_strings, stack_t **
 		else
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_number);
+			free_list(*stack);
+			free(col_strings);
 			exit(EXIT_FAILURE);
 		}
 		get_op_func(col_strings[0], line_number)(stack, line_number);
 	}
 	else
 		get_op_func(col_strings[0], line_number)(stack, line_number);
+
 	return (0);
 }

@@ -18,12 +18,12 @@
 #include "monty.h"
 /**
  * get_op_func - Select the correct operation function asked by the user
- * @opcode: Operation code
- * @line_number: Number of read line
+ * @code: Operation code
+ * @line: Number of read line
  * Return: Function pointer to operator given
  *
  */
-void (*get_op_func(char *opcode, unsigned int line_number))(stack_t **stack, unsigned int)
+void (*get_op_func(char *code, unsigned int line))(stack_t **stack, unsigned int)
 {
 	instruction_t ops[] = {
 		{"push", push},
@@ -33,16 +33,15 @@ void (*get_op_func(char *opcode, unsigned int line_number))(stack_t **stack, uns
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
-		{NULL, NULL}
+		{NULL, free_all}
 	};
 	unsigned int x = 0;
-
 	while (ops[x].opcode != NULL)
 	{
-		if (strcmp(ops[x].opcode, opcode) == 0)
+		if (strcmp(ops[x].opcode, code) == 0)
 			return (ops[x].f);
 		x++;
 	}
-	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
-	exit(EXIT_FAILURE);
+	fprintf(stderr, "L%d: unknown instruction %s\n", line, code);
+	return (ops[x].f);
 }

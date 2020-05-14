@@ -30,6 +30,7 @@ void push(stack_t **stack, unsigned int line_num)
 	if (!stack)
 	{
 		fprintf(stderr, "L%d: Need to use line_num\n", line_num);
+		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
 
@@ -101,6 +102,7 @@ void pop(stack_t **stack, unsigned int line_num)
 	if (!stack || !*stack)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_num);
+		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
 	tmp = (*stack);
@@ -139,6 +141,7 @@ void swap(stack_t **stack, unsigned int line_num)
 	if (counter < 2)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short", line_num);
+		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
 	tmp = (*stack);

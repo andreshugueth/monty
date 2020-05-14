@@ -22,6 +22,7 @@ void add(stack_t **stack, unsigned int line_num)
 	if (counter < 2)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short", line_num);
+		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
 	tmp = (*stack);
@@ -43,5 +44,12 @@ void nop(stack_t **stack, unsigned int line_num)
 {
 	(void) stack;
 	(void) line_num;
+}
+
+void free_all(stack_t **stack, unsigned int line_num)
+{
+	free_list(*stack);
+	(void) line_num;
+	exit(EXIT_FAILURE);
 }
 
