@@ -69,8 +69,8 @@ void sub(stack_t **stack, unsigned int line_num)
 		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
-	aux = (*stack)->n;
-	aux -= (*stack)->next->n;
+	aux = (*stack)->next->n;
+	aux -= (*stack)->n;
 	(*stack)->next->n = aux;
 	*stack = (*stack)->next;
 	free(tmp);
