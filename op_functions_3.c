@@ -65,13 +65,14 @@ void mod(stack_t **stack, unsigned int line_num)
 		exit(EXIT_FAILURE);
 	}
 
-	if ((*stack)->n == 0)
+
+	aux = (*stack)->n;
+	if (aux == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", line_num);
 		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
-	aux = (*stack)->n;
 	rest = (*stack)->next->n;
 	aux = aux % rest;
 	(*stack)->next->n = aux;
