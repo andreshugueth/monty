@@ -75,6 +75,7 @@ void mul(stack_t **stack, unsigned int);
 void mod(stack_t **stack, unsigned int);
 void pchar(stack_t **stack, unsigned int);
 void pstr(stack_t **stack, unsigned int);
+void rotl(stack_t **stack, unsigned int);
 
 /*free*/
 void free_list(stack_t *stack);

@@ -130,3 +130,25 @@ void pstr(stack_t **stack, __attribute__((unused))unsigned int line_num)
 	}
 	putchar('\n');
 }
+/**
+ *
+ *
+ *
+ *
+ */
+void rotl(stack_t **stack, __attribute__((unused))unsigned int line_num)
+{
+	stack_t *tmp;
+
+	if (!stack || !*stack || !(*stack)->next)
+		return;
+	tmp = (*stack);
+	while (tmp->next)
+		tmp = tmp->next;
+
+	tmp->next = (*stack);
+	(*stack)->prev = tmp;
+	(*stack) = (*stack)->next;
+	(*stack)->prev = NULL;
+	tmp->next->next = NULL;
+}
