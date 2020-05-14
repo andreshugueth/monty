@@ -79,4 +79,30 @@ void mod(stack_t **stack, unsigned int line_num)
 	*stack = (*stack)->next;
 	free(tmp);
 }
+/**
+ * pchar - prints the char at the top of the stack
+ * @stack: Top of the linked list
+ * @line_num: Number of read line
+ *
+ * Return: Nothing
+ */
+void pchar(stack_t **stack, unsigned int line_num)
+{
+	int number;
 
+	if (!stack || !*stack)
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_num);
+		exit(EXIT_FAILURE);
+	}
+
+	number = (*stack)->n;
+	if (number < 0 || number > 127)
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_num);
+		exit(EXIT_FAILURE);
+	}
+
+	putchar(number);
+	putchar('\n');
+}
