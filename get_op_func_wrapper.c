@@ -31,12 +31,12 @@ int get_op_func_wrapper(unsigned int line_number, char **col_strings, stack_t **
 {
 	if (strcmp(col_strings[0], "push") == 0)
 	{
-		if (col_strings[1] != NULL)
+		if (is_number(col_strings[1]) == 1)
 			glob_vars.glob_int = atoi(col_strings[1]);
 		else
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_number);
-			return (EXIT_FAILURE);
+			exit(EXIT_FAILURE);
 		}
 		get_op_func(col_strings[0], line_number)(stack, line_number);
 	}

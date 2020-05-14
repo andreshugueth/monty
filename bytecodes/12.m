@@ -1,6 +1,6 @@
-push 1
-push 2
-push 3
+push "X Æ A-12"
 pall
-add
+pall
+pall
+pall
 pall

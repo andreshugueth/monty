@@ -22,13 +22,10 @@ char **_tokenizer(char *line)
 	int i;
 	char **tokens = NULL;
 	char *token = NULL;
-
 	tokens = malloc(sizeof(char *) * buffer_size);
 	if (!tokens)
 		exit(1);
-
 	token = strtok(line, TOKEN_DELIMITERS);
-
 	if (token == NULL || *token == ' ' || *token == '\n' || *token == '#')
 	{
 		free(tokens);
@@ -41,4 +38,16 @@ char **_tokenizer(char *line)
 	}
 	tokens[i] = NULL;
 	return (tokens);
+}
+int is_number(char *col_strings)
+{
+	if (!col_strings)
+		return (0);
+	while (*col_strings != '\0')
+	{
+		if (!isdigit(*col_strings))
+			return (0);
+		col_strings++;
+	}
+	return (1);
 }

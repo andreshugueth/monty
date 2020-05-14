@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <ctype.h>
 
 #define TOKEN_DELIMITERS " \n\t\r\a"
 
@@ -49,6 +50,7 @@ typedef struct instruction_s
 /*parsing*/
 char **_tokenizer(char *buffer_line);
 void (*get_op_func(char *opcode, unsigned int))(stack_t **stack, unsigned int);
+int is_number(char *col_strings);
 
 /*checking*/
 int get_op_func_wrapper(unsigned int, char **col_strings, stack_t **stack);
