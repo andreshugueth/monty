@@ -46,14 +46,17 @@ int main(int argc, char *argv[])
 	while ((read = getline(&line, &len, fptr)) != -1)
 	{
 		col_strings = _tokenizer(line);
-		if (col_strings)
+		if (!col_strings)
 		{
-			get_op_func_wrapper(line_number, col_strings, &stack);
+			line_number++;
+			continue;
 		}
+		get_op_func_wrapper(line_number, col_strings, &stack);
 		line_number++;
 		free(col_strings);
 	}
 	fclose(fptr);
+	free(line);
 	free_list(stack);
 	return (EXIT_SUCCESS);
 }			/* ----------  end of function main  ---------- */

@@ -30,7 +30,10 @@ char **_tokenizer(char *line)
 	token = strtok(line, TOKEN_DELIMITERS);
 
 	if (token == NULL || *token == ' ' || *token == '\n' || *token == '#')
+	{
+		free(tokens);
 		return (NULL);
+	}
 	for (i = 0; token != NULL; i++)
 	{
 		tokens[i] = token;
