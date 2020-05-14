@@ -65,5 +65,6 @@ int is_number(char *col_strings)
 			return (0);
 		col_strings++;
 	}
+	col_strings++;
 	return (1);
 }
