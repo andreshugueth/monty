@@ -1,3 +1,20 @@
+/*
+ * ===================================================
+ *
+ *       Filename:  op_functions_2.c
+ *
+ *    Description:  Operations to be executed
+ *
+ *        Version:  1.0
+ *        Created:  05/12/2020 07:13:37 PM
+ *       Revision:  none
+ *       Compiler:  gcc
+ *
+ *         Author:  SAMUEL GOMEZ J & ANDRES HUGUETH
+ *   Organization:  Holberton
+ *
+ * ===================================================
+ */
 #include "monty.h"
 /**
  * add - adds the top two elements of the stack

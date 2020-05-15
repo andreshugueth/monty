@@ -3,7 +3,7 @@
  *
  *       Filename:  free_list.c
  *
- *    Description:  Select the correct operation function asked by the user
+ *    Description:  Free a linked list
  *
  *        Version:  1.0
  *        Created:  05/12/2020 07:13:37 PM
