@@ -1,3 +1,20 @@
+/*
+ * ===================================================
+ *
+ *       Filename:  free_list.c
+ *
+ *    Description:  Select the correct operation function asked by the user
+ *
+ *        Version:  1.0
+ *        Created:  05/12/2020 07:13:37 PM
+ *       Revision:  none
+ *       Compiler:  gcc
+ *
+ *         Author:  SAMUEL GOMEZ J & ANDRES HUGUETH
+ *   Organization:  Holberton
+ *
+ * ===================================================
+ */
 #include "monty.h"
 /**
  * free_list - free a double lk list
