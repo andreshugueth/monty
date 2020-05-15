@@ -10,7 +10,7 @@
  *       Revision:  none
  *       Compiler:  gcc
  *
- *         Author:  SAMUEL GOMEZ & ANDRES HUGUET
+ *         Author:  SAMUEL GOMEZ & ANDRES HUGUETH
  *   Organization:  Holberton
  *
  * ===================================================
