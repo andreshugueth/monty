@@ -151,6 +151,10 @@ name@ubuntu:~/monty$
 - [x] Task 13: **Rotl**
 - [x] Task 14: **Rotr**
 - [ ] Task 15: **Stack, Queue**
+- [ ] Task 16: **Holberton**
+- [ ] Task 17: **Add two digits**
+- [ ] Task 18: **Multiplication**
+- [ ] Task 19: **Multliplication level up**
 
 ## Authors  :octocat:
 [@Andres Hugueth - Github :octocat:](https://github.com/andreshugueth) - [@Samuel Gómez - Github :octocat:](https://github.com/samgj18)
