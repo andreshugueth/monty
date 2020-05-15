@@ -135,11 +135,15 @@ name@ubuntu:~/monty$
 
 ## Task List
 
-- [x] Task 0: Push, Pall
-- [x] Task 1: Pint
-- [x] Task 2: Pop
-- [x] Task 3: Swap
-- [x] Task 4: Add
+- [x] Task 0: **Push, Pall**
+- [x] Task 1: **Pint**
+- [x] Task 2: **Pop**
+- [x] Task 3: **Swap**
+- [x] Task 4: **Add**
+- [x] Task 5: **Nop**
+- [x] Task 6: **Sub**
+- [x] Task 7: **Div**
+- [x] Task 8: **Mul**
 
 ## Authors  :octocat:
 [@Andres Hugueth - Github :octocat:](https://github.com/andreshugueth) - [@Samuel Gómez - Github :octocat:](https://github.com/samgj18)
