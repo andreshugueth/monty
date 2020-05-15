@@ -132,3 +132,6 @@ name@ubuntu:~/monty$
 
 - If you can’t malloc anymore, print the error message Error: malloc failed, followed by a new line, and exit with status EXIT_FAILURE.
 - You have to use malloc and free and are not allowed to use any other function from man malloc (realloc, calloc, …)
+
+## Authors  :octocat:
+[@Andres Hugueth - Github :octocat:](https://github.com/andreshugueth) - [@Jose Parrales - Github :octocat:](https://github.com/samgj18)
