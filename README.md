@@ -144,6 +144,8 @@ name@ubuntu:~/monty$
 - [x] Task 6: **Sub**
 - [x] Task 7: **Div**
 - [x] Task 8: **Mul**
+- [x] Task 9: **Mod**
+- [x] Task 10: **Comments**
 
 ## Authors  :octocat:
 [@Andres Hugueth - Github :octocat:](https://github.com/andreshugueth) - [@Samuel Gómez - Github :octocat:](https://github.com/samgj18)
