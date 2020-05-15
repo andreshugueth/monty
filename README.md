@@ -1,11 +1,5 @@
 # Stacks, Queues - LIFO, FIFO
 
-## Resources:
-
-* [Google](https://www.google.com/webhp?q=stack%20and%20queue)
-* [How do I use extern to share variables between source files in C?](https://stackoverflow.com/questions/1433204/how-do-i-use-extern-to-share-variables-between-source-files)
-* [Queue using Stacks](https://www.geeksforgeeks.org/queue-using-stacks/)
-
 ## Learning Objectives
 
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
@@ -23,7 +17,7 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 
 ## Data structures
 
-Please use the following data structures for this project. Don’t forget to include them in your header file.
+Please use the following data structures for this project.
 
 ```c
 /**
@@ -83,7 +77,7 @@ Monty 0.98 is a scripting language that is first compiled into Monty byte codes 
 Files containing Monty byte codes usually have the .m extension. Most of the industry uses this standard but it is not required by the specification of the language. There is not more than one instruction per line. There can be any number of spaces before or after the opcode and its argument:
 
 ```
-julien@ubuntu:~/monty$ cat -e bytecodes/000.m
+name@ubuntu:~/monty$ cat -e bytecodes/000.m
 push 0$
 push 1$
 push 2$
@@ -93,12 +87,12 @@ push 4$
     push 5    $
       push    6        $
 pall$
-julien@ubuntu:~/monty$
+name@ubuntu:~/monty$
 ```
 Monty byte code files can contain blank lines (empty or made of spaces only, and any additional text after the opcode or its required argument is not taken into account:
 
 ```
-julien@ubuntu:~/monty$ cat -e bytecodes/001.m
+name@ubuntu:~/monty$ cat -e bytecodes/001.m
 push 0 Push 0 onto the stack$
 push 1 Push 1 onto the stack$
 $
@@ -114,7 +108,7 @@ $
       push    6        $
 $
 pall This is the end of our program. Monty is awesome!$
-julien@ubuntu:~/monty$
+name@ubuntu:~/monty$
 ```
 
 **The monty program**
