@@ -40,6 +40,7 @@ void (*get_op_func(char *code, unsigned int ln))(stack_t **stack, unsigned int)
 		{"pchar", pchar},
 		{"pstr", pstr},
 		{"rotl", rotl},
+		{"rotr", rotr},
 		{NULL, free_all}
 	};
 

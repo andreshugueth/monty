@@ -131,10 +131,11 @@ void pstr(stack_t **stack, __attribute__((unused))unsigned int line_num)
 	putchar('\n');
 }
 /**
+ * rotl - rotates the stack to the top
+ * @stack: Top of the linked list
+ * @line_num: Number of read line
  *
- *
- *
- *
+ * Return: Nothing
  */
 void rotl(stack_t **stack, __attribute__((unused))unsigned int line_num)
 {
@@ -152,3 +153,5 @@ void rotl(stack_t **stack, __attribute__((unused))unsigned int line_num)
 	(*stack)->prev = NULL;
 	tmp->next->next = NULL;
 }
+
+
